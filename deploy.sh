@@ -9,6 +9,8 @@ cd docs/.vuepress/dist # 进入生成的文件夹
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
   githubUrl=git@github.com:julie7366/my-blog.git
+  git config --global user.name "julie7366"
+  git config --global user.email "736635982@qq.com"
 else
   msg='来自github action的自动部署'
   githubUrl=https://julie7366:${GITHUB_TOKEN}@github.com/julie7366/my-blog.git
