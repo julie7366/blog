@@ -14,4 +14,4 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m "${msg}"
-git push -f git@github.com:julie7366/julie7366.github.io.git master
+git push -f git@github.com:<julie7366>/<my-blog>.git master:gh-pages
