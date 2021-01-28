@@ -9,7 +9,7 @@ module.exports = [
       {
         text: '前端',
         items: [
-          { text: 'JavaScript', link: '/pages/7a91be2d502346ce/' },
+        	{ text: 'typeScript学习笔记', link: '/pages/41f87d890d0a02afes/' },
         ],
       },
       {
@@ -21,7 +21,11 @@ module.exports = [
     ],
   },
   { text: '文集', link: '/writings/' },
-  { text: '文档', link: '/doc/' },
+  { text: '文档', link: '/doc/',
+  	items: [
+      { text: '前端公用方法', link: '/pages/7a91be2d502346ce/' },
+    ]
+  },
   { text: '关于', link: '/about/' },
   {
     text: '收藏',
