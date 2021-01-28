@@ -13,8 +13,8 @@ features: # 可选的
     details: 激发内心的小怪兽
     link: /ui/
     imgUrl: /img/ui.png
-  - title: 摄影
+  - title: 文档
     details: 记录生活中的每一个精彩瞬间
-    link: /technology/
+    link: /docs/
     imgUrl: /img/other.png
 ---

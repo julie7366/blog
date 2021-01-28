@@ -11,11 +11,17 @@ module.exports = [
         items: [
           { text: 'JavaScript', link: '/pages/7a91be2d502346ce/' },
         ],
+      },
+      {
+        text: '博客搭建',
+        items: [
+          { text: '快速上手', link: '/pages/41f87d890d0a02af/' },
+        ],
       }
     ],
   },
   { text: '文集', link: '/writings/' },
-  { text: '摄影', link: '/photography/' },
+  { text: '文档', link: '/doc/' },
   { text: '关于', link: '/about/' },
   {
     text: '收藏',
