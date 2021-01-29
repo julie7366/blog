@@ -1,7 +1,7 @@
 ---
 home: true
 # heroImage: /img/web.png
-heroText: Ni Ni blog
+heroText: 前端知识库
 tagline: web前端技术博客，爱学习，爱劳动，长大要为人民立功劳。
 
 features: # 可选的

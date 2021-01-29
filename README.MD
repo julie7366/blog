@@ -22,25 +22,10 @@ npm run dev # or yarn dev
 一群不怎么热爱coding的前端小菜鸡
 
 ## :email: 联系
-- **QQ**: <a :href="qqUrl">736635982</a>
+- **QQ**: 736635982
 - **Email**:  <a href="mailto:736635982@qq.com">736635982@qq.com</a>
 - **GitHub**: <https://github.com/julie7366>    
 ***
-- **QQ**: <a :href="qqUrl">502724802</a>
+- **QQ**: 502724802
 - **Email**:  <a href="mailto:502724802@qq.com">502724802@qq.com</a>
 - **GitHub**: <https://github.com/Ostask>
-<script>
-  export default {
-    data(){
-      return {
-        qqUrl: 'tencent://message/?uin=736635982&Site=&Menu=yes'
-      }
-    },
-    mounted(){
-      const flag =  navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-      if(flag){
-        this.qqUrl = 'mqqwpa://im/chat?chat_type=wpa&uin=736635982&version=1&src_type=web&web_src=oicqzone.com'
-      }
-    }
-  }
-</script>
