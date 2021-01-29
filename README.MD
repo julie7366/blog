@@ -18,7 +18,7 @@ npm run dev # or yarn dev
 这是一个前端团队集博客文章，知识管理，项目文档的网站，主要内容是前端技术。
 [访问地址](https://julie7366.github.io/my-blog)
 
-### :see_no_evil:
+### :see_no_evil: We are
 一群不怎么热爱coding的前端小菜鸡
 
 ## :email: 联系
