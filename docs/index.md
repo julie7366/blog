@@ -14,7 +14,7 @@ features: # 可选的
     link: /ui/
     imgUrl: /img/ui.png
   - title: 文档
-    details: 记录生活中的每一个精彩瞬间
+    details: 技术文档、教程、技巧、总结等文章
     link: /docs/
     imgUrl: /img/other.png
 ---

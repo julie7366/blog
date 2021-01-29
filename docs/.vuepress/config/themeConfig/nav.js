@@ -21,7 +21,7 @@ module.exports = [
     ],
   },
   { text: '文集', link: '/writings/' },
-  { text: '文档', link: '/doc/',
+  { text: '文档', link: '/docs/',
   	items: [
       { text: '前端公用方法', link: '/pages/7a91be2d502346ce/' },
     ]
