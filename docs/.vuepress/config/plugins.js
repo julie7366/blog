@@ -85,7 +85,7 @@ module.exports = [
       options: {
         clientID: '758b2f530b693124c34a',
         clientSecret: 'ebd70204af495efd17f6fbcb8aca5d49bd276af9',
-        repo: 'https://julie7366.github.io/my-blog/', // GitHub 仓库
+        repo: '/my-blog/', // GitHub 仓库
         owner: 'julie7366', // GitHub仓库所有者
         admin: ['julie7366'], // 对仓库有写权限的人
         // distractionFreeMode: true,
