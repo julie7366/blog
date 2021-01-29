@@ -87,7 +87,7 @@ module.exports = [
         clientSecret: 'ebd70204af495efd17f6fbcb8aca5d49bd276af9',
         repo: 'my-blog', // GitHub 仓库
         owner: 'julie7366', // GitHub仓库所有者
-        admin: ['julie7366'], // 对仓库有写权限的人
+        admin: ['julie7366','Ostask'], // 对仓库有写权限的人
         // distractionFreeMode: true,
         pagerDirection: 'last', // 'first'正序 | 'last'倒序
         id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
