@@ -1,6 +1,7 @@
 # npm
 package-lock.json
 node_modules
+.history
 
 # yarn
 yarn.lock
