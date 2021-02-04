@@ -11,7 +11,7 @@ features: # 可选的
     imgUrl: /img/web.png # 可选
   - title: 文集
     details: 激发内心的小怪兽
-    link: /ui/
+    link: /writings/
     imgUrl: /img/ui.png
   - title: 文档
     details: 技术文档、教程、技巧、总结等文章
