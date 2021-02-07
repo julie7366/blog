@@ -1,6 +1,8 @@
 ---
 home: true
-# heroImage: /img/web.png
+#heroImage: /img/bg.jpg
+#bannerBg: /img/bg.jpg
+bodyBgImg: /img/bg.jpg
 heroText: 前端知识库
 tagline: web前端技术博客，爱学习，爱劳动，长大要为人民立功劳。
 

@@ -38,7 +38,7 @@
               >#</a>
               {{`${index+1}. ${item.title}`}}
             </dt>
-            <dd>
+            <dd style="display: inline-block;">
               <!-- 二级目录 -->
               <template
                 v-for="(c, i) in item.children"
@@ -46,10 +46,21 @@
                 <template
                  v-if="type(c) === 'array'"
                 >
-                  <router-link
-                  :to="c[2]"
-                  :key="i"
-                  >{{`${index+1}-${i+1}. ${c[1]}`}}</router-link>
+                	<div v-if="!pageData.card">
+	                		<router-link
+	                  :to="c[2]"
+	                  :key="i"
+	                  >{{`${index+1}-${i+1}. ${c[1]}`}}</router-link>
+                	</div>
+                  <div v-else style="position: relative;width: 30%;margin: 1%;float: left;">
+                  		<img :src="c[3]" style="width: 100%;">
+                  		<div style="position: absolute;width: 100%;height: 25px; bottom: 0px;background: rgba(0,0,0,0.7);text-align: center;">
+                  			<router-link
+	                  :to="c[2]"
+	                  :key="i"
+	                  style="cursor: pointer;"	                  
+	                  >{{c[1]}}</router-link></div>
+                  </div>
                 </template>
                 <!-- 三级目录 -->
                 <div
@@ -93,6 +104,7 @@ export default {
     this.getPageData()
 
     const sidebar = this.$themeConfig.sidebar
+    
     if (!sidebar || sidebar === 'auto') {
       this.isStructuring = false
       console.error("目录页数据依赖于结构化的侧边栏数据，请在主题设置中将侧边栏字段设置为'structuring'，否则无法获取目录数据。")
@@ -118,7 +130,22 @@ export default {
       if (!catalogueList) {
         console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
       }
+      let pageObj ={}
+      this.$site.pages.forEach(item=>{
+      	pageObj[item.path] = item.frontmatter.imgUrl
+      })
+      this.getCateList(catalogueList,pageObj)
       return catalogueList
+    },
+    getCateList(itemList,pageObj){
+    	itemList.forEach(item=>{
+      	if(item.children){
+      		this.getCateList(item.children,pageObj)
+      	}else{
+      		let img = pageObj[item[2]]
+      		item.push(img)
+      	}
+      })
     },
     type (o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
