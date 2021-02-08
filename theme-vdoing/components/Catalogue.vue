@@ -46,19 +46,17 @@
                 <template
                  v-if="type(c) === 'array'"
                 >
-                	<div v-if="!pageData.card">
-	                		<router-link
-	                  :to="c[2]"
-	                  :key="i"
-	                  >{{`${index+1}-${i+1}. ${c[1]}`}}</router-link>
-                	</div>
+            		<router-link  v-if="!pageData.card"
+	              :to="c[2]"
+	              :key="i"
+	              >{{`${index+1}-${i+1}. ${c[1]}`}}</router-link>
                   <div v-else style="position: relative;width: 30%;margin: 1%;float: left;">
                   		<img :src="c[3]" style="width: 100%;">
-                  		<div style="position: absolute;width: 100%;height: 25px; bottom: 0px;background: rgba(0,0,0,0.7);text-align: center;">
+                  		<div style="position: absolute;width: 100%;line-height: 35px; bottom: 0px;background: rgba(0,0,0,0.2);text-align: center;">
                   			<router-link
 	                  :to="c[2]"
 	                  :key="i"
-	                  style="cursor: pointer;"	                  
+	                  style="cursor: pointer;color: #FFFFFF;"	                  
 	                  >{{c[1]}}</router-link></div>
                   </div>
                 </template>
