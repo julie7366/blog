@@ -3,7 +3,7 @@ home: true
 #heroImage: /img/hero.jpg
 bannerBg: /img/bg.jpg
 bodyBgImg: /img/bg.jpg
-heroText: 前端知识库
+heroText: NINI的小本本
 tagline: web前端技术博客，爱学习，爱劳动，长大要为人民立功劳。
 
 features: # 可选的
