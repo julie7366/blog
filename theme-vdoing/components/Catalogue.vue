@@ -3,62 +3,34 @@
     <div class="column-wrapper">
       <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
-        <dt class="title">{{pageData.title}}</dt>
-        <dd
-          class="description"
-          v-html="pageData.description"
-        ></dd>
+        <dt class="title">{{ pageData.title }}</dt>
+        <dd class="description" v-html="pageData.description"></dd>
       </dl>
     </div>
-    <div
-      class="catalogue-wrapper"
-      v-if="isStructuring"
-    >
+    <div class="catalogue-wrapper" v-if="isStructuring">
       <div class="catalogue-title">目录</div>
       <div class="catalogue-content">
         <template v-for="(item, index) in getCatalogueList()">
-          <dl
-            v-if="type(item) === 'array'"
-            :key="index"
-            class="inline"
-          >
+          <dl v-if="type(item) === 'array'" :key="index" class="inline">
             <dt>
-              <router-link :to="item[2]">{{`${index+1}. ${item[1]}`}}</router-link>
+              <router-link :to="item[2]">{{
+                `${index + 1}. ${item[1]}`
+              }}</router-link>
             </dt>
           </dl>
-          <dl
-            v-else-if="type(item) === 'object'"
-            :key="index"
-          >
+          <dl v-else-if="type(item) === 'object'" :key="index">
             <!-- 一级目录 -->
-            <dt :id="anchorText = item.title">
-              <a
-                :href="`#${anchorText}`"
-                class="header-anchor"
-              >#</a>
-              {{`${index+1}. ${item.title}`}}
+            <dt :id="(anchorText = item.title)">
+              <a :href="`#${anchorText}`" class="header-anchor">#</a>
+              {{ `${index + 1}. ${item.title}` }}
             </dt>
-            <dd style="display: inline-block;">
+            <dd>
               <!-- 二级目录 -->
-              <template
-                v-for="(c, i) in item.children"
-              >
-                <template
-                 v-if="type(c) === 'array'"
-                >
-            		<router-link  v-if="!pageData.card"
-	              :to="c[2]"
-	              :key="i"
-	              >{{`${index+1}-${i+1}. ${c[1]}`}}</router-link>
-                  <div v-else style="position: relative;width: 30%;margin: 1%;float: left;">
-                  		<img :src="c[3]" style="width: 100%;">
-                  		<div style="position: absolute;width: 100%;line-height: 35px; bottom: 0px;background: rgba(0,0,0,0.2);text-align: center;">
-                  			<router-link
-	                  :to="c[2]"
-	                  :key="i"
-	                  style="cursor: pointer;color: #FFFFFF;"	                  
-	                  >{{c[1]}}</router-link></div>
-                  </div>
+              <template v-for="(c, i) in item.children">
+                <template v-if="type(c) === 'array'">
+                  <router-link :to="c[2]" :key="i">{{
+                    `${index + 1}-${i + 1}. ${c[1]}`
+                  }}</router-link>
                 </template>
                 <!-- 三级目录 -->
                 <div
@@ -66,19 +38,16 @@
                   :key="i"
                   class="sub-cat-wrap"
                 >
-                  <div :id="anchorText = c.title" class="sub-title">
-                    <a
-                      :href="`#${anchorText}`"
-                      class="header-anchor"
-                    >#</a>
-                    {{`${index+1}-${i+1}. ${c.title}`}}
+                  <div :id="(anchorText = c.title)" class="sub-title">
+                    <a :href="`#${anchorText}`" class="header-anchor">#</a>
+                    {{ `${index + 1}-${i + 1}. ${c.title}` }}
                   </div>
                   <router-link
                     v-for="(cc, ii) in c.children"
                     :to="cc[2]"
-                    :key="`${index+1}-${i+1}-${ii+1}`"
+                    :key="`${index + 1}-${i + 1}-${ii + 1}`"
                   >
-                    {{`${index+1}-${i+1}-${ii+1}. ${cc[1]}`}}
+                    {{ `${index + 1}-${i + 1}-${ii + 1}. ${cc[1]}` }}
                   </router-link>
                 </div>
               </template>
@@ -95,14 +64,13 @@ export default {
   data () {
     return {
       pageData: null,
-      isStructuring: true
+      isStructuring: true,
+      appointDir: {}
     }
   },
   created () {
     this.getPageData()
-
     const sidebar = this.$themeConfig.sidebar
-    
     if (!sidebar || sidebar === 'auto') {
       this.isStructuring = false
       console.error("目录页数据依赖于结构化的侧边栏数据，请在主题设置中将侧边栏字段设置为'structuring'，否则无法获取目录数据。")
@@ -122,32 +90,45 @@ export default {
     },
     getCatalogueList () {
       const { sidebar } = this.$site.themeConfig
-      const key = this.$frontmatter.pageComponent.data.key
-      const catalogueList = sidebar[`/${key}/`]
-
-      if (!catalogueList) {
-        console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
+      const { data } = this.$frontmatter.pageComponent
+      const key = data.path || data.key
+      let keyArray = key.split('/');
+      let catalogueList = (sidebar[`/${keyArray[0]}/`]);
+      if (keyArray.length > 1) {
+        // 删除第一个元素，并修改原数组
+        keyArray.shift();
+        catalogueList = this.appointDirDeal(0, keyArray, catalogueList);
       }
-      let pageObj ={}
-      this.$site.pages.forEach(item=>{
-      	pageObj[item.path] = item.frontmatter.imgUrl
-      })
-      this.getCateList(catalogueList,pageObj)
+      if (!catalogueList) {
+        console.error('未获取到目录数据，请查看front matter中设置的path是否正确。')
+      }
       return catalogueList
-    },
-    getCateList(itemList,pageObj){
-    	itemList.forEach(item=>{
-      	if(item.children){
-      		this.getCateList(item.children,pageObj)
-      	}else{
-      		let img = pageObj[item[2]]
-      		item.push(img)
-      	}
-      })
     },
     type (o) { // 数据类型检查
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
-    }
+    },
+    /**
+     * 指定目录页配置处理
+     * @param index 目录数组的下标
+     * @param dirKeyArray 目录名称数组
+     * @param catalogueList 目录对象列表
+     * @returns {*}
+     */
+    appointDirDeal (index, dirKeyArray, catalogueList) {
+      let dirKey = dirKeyArray[index];
+      if (dirKey !== undefined && dirKey.indexOf(".") !== -1) {
+        dirKey = dirKey.substring(dirKey.indexOf('.') + 1);
+      }
+      for (let i = 0; i < catalogueList.length; i++) {
+        if (catalogueList[i].title === dirKey) {
+          this.appointDir = catalogueList[i];
+          if (index < dirKeyArray.length - 1) {
+            this.appointDirDeal(index + 1, dirKeyArray, catalogueList[i].children);
+          }
+        }
+      }
+      return this.appointDir.children;
+    },
   },
   watch: {
     '$route.path' () {
@@ -214,7 +195,7 @@ dl, dd
           width 100%
       .sub-cat-wrap
         margin 5px 0 8px 0
-        font-size .95rem
+        font-size 0.95rem
         &> a
           padding-left 1rem
           box-sizing border-box
