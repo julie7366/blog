@@ -34,6 +34,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "update-notifier": "^5.1.0",
     "vuepress-plugin-comment": "^0.7.3",
     "vuepress-plugin-element-ui": "^1.1.0"
   }
