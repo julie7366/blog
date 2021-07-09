@@ -7,7 +7,7 @@ module.exports = {
   // theme: require.resolve('../../theme-vdoing'), // 使用本地主题
 
   title: "呢呢 Blog",
-  description: '不积小步，无以至千里。记录工作生活中美好事，好事发生..',
+  description: '记录工作生活中美好的事，好事正在发生..',
   base: '/my-blog/', // 格式：'/<仓库名>/'， 默认'/'
   markdown: {
     lineNumbers: true, // 代码行号
