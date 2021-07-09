@@ -1,10 +1,10 @@
 ---
 home: true
 #heroImage: /img/hero.jpg
-bannerBg: /img/bg.jpg
-bodyBgImg: /img/bg.jpg
-heroText: NINI的小本本
-tagline: web前端技术博客，爱学习，爱劳动，长大要为人民立功劳。
+bannerBg: https://cdn.jsdelivr.net/gh/julie7366/picgo-blog/images/me/1.jpg
+bodyBgImg: https://cdn.jsdelivr.net/gh/julie7366/picgo-blog/images/me/1.jpg
+heroText: 呢呢 Blog
+tagline: 不积小步，无以至千里。记录工作生活中美好事，好事发生..
 
 features: # 可选的
   - title: 编程
