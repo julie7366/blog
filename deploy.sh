@@ -3,7 +3,6 @@
 set -e
 npm run build # 生成静态文件
 cd docs/.vuepress/dist # 进入生成的文件夹
-
 # deploy to github
 echo 'julie7366.github.io/my-blog' > CNAME
 if [ -z "$GITHUB_TOKEN" ]; then

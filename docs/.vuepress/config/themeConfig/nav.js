@@ -9,7 +9,7 @@ module.exports = [
       {
         text: '前端',
         items: [
-        	{ text: 'typeScript学习笔记', link: '/pages/41f87d890d0a02afes/' },
+        	{ text: 'web Worker使用笔记', link: '/pages/7caa55/' },
         ],
       },
       {
