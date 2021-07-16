@@ -75,29 +75,29 @@ module.exports = [
   [
     'vuepress-plugin-baidu-tongji', // 百度统计
     {
-      hm: '503f098e7e5b3a5b5d8c5fc2938af002',
+      hm: '6a9a49626834d99cc7648236def78eb5',
     },
   ],
-  [
-    'vuepress-plugin-comment', // 评论
-    {
-      choosen: 'gitalk',
-      options: {
-        clientID: '758b2f530b693124c34a',
-        clientSecret: 'ebd70204af495efd17f6fbcb8aca5d49bd276af9',
-        repo: 'my-blog', // GitHub 仓库
-        owner: 'julie7366', // GitHub仓库所有者
-        admin: ['julie7366','Ostask'], // 对仓库有写权限的人
-        // distractionFreeMode: true,
-        pagerDirection: 'last', // 'first'正序 | 'last'倒序
-        id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
-        title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
-        labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
-        body:
-          '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
-      },
-    },
-  ],
+  // [
+  //   'vuepress-plugin-comment', // 评论
+  //   {
+  //     choosen: 'gitalk',
+  //     options: {
+  //       clientID: '758b2f530b693124c34a',
+  //       clientSecret: 'ebd70204af495efd17f6fbcb8aca5d49bd276af9',
+  //       repo: 'my-blog', // GitHub 仓库
+  //       owner: 'julie7366', // GitHub仓库所有者
+  //       admin: ['julie7366','Ostask'], // 对仓库有写权限的人
+  //       // distractionFreeMode: true,
+  //       pagerDirection: 'last', // 'first'正序 | 'last'倒序
+  //       id: '<%- (frontmatter.permalink || frontmatter.to.path).slice(-16) %>', //  页面的唯一标识,长度不能超过50
+  //       title: '「评论」<%- frontmatter.title %>', // GitHub issue 的标题
+  //       labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
+  //       body:
+  //         '页面：<%- window.location.origin + (frontmatter.to.path || window.location.pathname) %>', // GitHub issue 的内容
+  //     },
+  //   },
+  // ],
   [
     '@vuepress/last-updated', // "上次更新"时间格式
     {
