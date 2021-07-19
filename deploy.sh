@@ -14,10 +14,12 @@ else
   git config --global user.name "julie7366"
   git config --global user.email "736635982@qq.com"
 fi
+
 git init
 git add -A
 git commit -m "${msg}"
 git push -f $githubUrl master:gh-pages # 推送到github
 
 :set ff=unix
+
 :set fileformat=unix
