@@ -18,3 +18,4 @@ git init
 git add -A
 git commit -m "${msg}"
 git push -f "$githubUrl" master:gh-pages; # 推送到github
+sed -i "s/\r//";
