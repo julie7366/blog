@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # 确保脚本抛出遇到的错误
-#set -e
+set -e
 npm run build # 生成静态文件
 cd docs/.vuepress/dist # 进入生成的文件夹
 # deploy to github
