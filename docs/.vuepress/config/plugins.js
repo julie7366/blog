@@ -1,11 +1,19 @@
 // 插件配置
 module.exports = [
   // 本地插件
-  // [require('./plugins/love-me'), { // 鼠标点击爱心特效
-  //   color: '#11a8cd', // 爱心颜色，默认随机色
-  //   excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
-  // }],
-
+  [require('../plugins/love-me/index'), { // 鼠标点击爱心特效
+    color: '#11a8cd', // 爱心颜色，默认随机色
+    excludeClassName: 'theme-vdoing-content' // 要排除元素的class, 默认空''
+  }],
+  [
+    'vuepress-plugin-preview', // 图片预览
+    {
+      selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
+      options: {
+        bgColor: 'rgba(0,0,0,0.6)',
+      },
+    },
+  ],
   'vuepress-plugin-baidu-autopush', // 百度自动推送
 
   // 可以添加第三方搜索链接的搜索框（原官方搜索框的参数仍可用）
@@ -63,15 +71,15 @@ module.exports = [
       },
     },
   ],
-  [
-    'vuepress-plugin-zooming', // 放大图片
-    {
-      selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
-      options: {
-        bgColor: 'rgba(0,0,0,0.6)',
-      },
-    },
-  ],
+  // [
+  //   'vuepress-plugin-zooming', // 放大图片
+  //   {
+  //     selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
+  //     options: {
+  //       bgColor: 'rgba(0,0,0,0.6)',
+  //     },
+  //   },
+  // ],
   [
     'vuepress-plugin-baidu-tongji', // 百度统计
     {
