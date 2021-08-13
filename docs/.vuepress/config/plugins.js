@@ -8,10 +8,7 @@ module.exports = [
   [
     'vuepress-plugin-preview', // 图片预览
     {
-      selector: '.theme-vdoing-content img:not(.no-zoom)', // 排除class是no-zoom的图片
-      options: {
-        bgColor: 'rgba(0,0,0,0.6)',
-      },
+      selector: '.theme-vdoing-content img:not(.no-zoom)' // 排除class是no-zoom的图片
     },
   ],
   'vuepress-plugin-baidu-autopush', // 百度自动推送
