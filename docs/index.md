@@ -4,7 +4,7 @@ home: true
 bannerBg: https://cdn.jsdelivr.net/gh/julie7366/picgo-blog/images/me/1.jpg
 bodyBgImg: https://cdn.jsdelivr.net/gh/julie7366/picgo-blog/images/me/1.jpg
 heroText: 呢呢 Blog
-tagline: 记录工作生活中美好的事，好事正在发生..
+tagline: 记录工作生活中美好的事，好事正在发生...
 
 features: # 可选的
   - title: 编程
