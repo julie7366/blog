@@ -36,14 +36,14 @@ module.exports = [
       { text: 'Vue资源', link: '/pages/12df8ace52d493f6/' },
       { text: '友情链接', link: '/friends/' },
     ],
-  },
-  {
-    text: '索引',
-    link: '/archives/',
-    items: [
-      { text: '分类', link: '/categories/' },
-      { text: '标签', link: '/tags/' },
-      { text: '归档', link: '/archives/' },
-    ],
-  },
+  }
+  // {
+  //   text: '索引',
+  //   link: '/archives/',
+  //   items: [
+  //     { text: '分类', link: '/categories/' },
+  //     { text: '标签', link: '/tags/' },
+  //     { text: '归档', link: '/archives/' },
+  //   ],
+  // },
 ]
